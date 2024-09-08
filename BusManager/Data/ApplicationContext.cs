@@ -10,6 +10,7 @@ namespace BusManager.Data
         public DbSet<Station> Station { get; set; }
         public DbSet<Line> Line { get; set; }
         public DbSet<Stop> Stop { get; set; }
+        public DbSet<Trip> Trip { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -80,7 +81,6 @@ namespace BusManager.Data
                 p.HasIndex(p => p.Code);
             });
 
-
             modelBuilder.Entity<Stop>(p =>
             {
                 p.ToTable("Stops");
@@ -102,6 +102,34 @@ namespace BusManager.Data
                 p.HasIndex(stop => new { stop.LineId, stop.StationId }).IsUnique();
             });
 
+            modelBuilder.Entity<Trip>(p =>
+            {
+                p.ToTable("Trips");
+                p.HasKey(p => p.Id);
+
+                p.Property(p => p.StartTime).HasColumnType("DATE").IsRequired();
+                p.Property(p => p.EndTime).HasColumnType("DATE").IsRequired();
+
+                p.HasOne(trip => trip.Bus)
+                 .WithMany()
+                 .HasForeignKey(trip => trip.BusId)
+                 .IsRequired();
+
+                p.HasOne(trip => trip.Driver)
+                 .WithMany()
+                 .HasForeignKey(trip => trip.DriverId)
+                 .IsRequired();
+
+                p.HasOne(trip => trip.Line)
+                 .WithMany()
+                 .HasForeignKey(trip => trip.LineId)
+                 .IsRequired();
+
+                p.HasIndex(p => p.Id);
+                p.HasIndex(p => p.BusId);
+                p.HasIndex(p => p.DriverId);
+                p.HasIndex(p => p.LineId);
+            });
         }
     }
 }

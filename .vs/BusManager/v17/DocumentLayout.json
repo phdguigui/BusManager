@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\git\\BusManager\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BE13D0E5-BE15-407B-8187-7F61D95AD839}|BusManager\\BusManager.csproj|d:\\git\\busmanager\\busmanager\\view\\landingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE13D0E5-BE15-407B-8187-7F61D95AD839}|BusManager\\BusManager.csproj|solutionrelative:busmanager\\view\\landingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE13D0E5-BE15-407B-8187-7F61D95AD839}|BusManager\\BusManager.csproj|d:\\git\\busmanager\\busmanager\\view\\tripview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE13D0E5-BE15-407B-8187-7F61D95AD839}|BusManager\\BusManager.csproj|solutionrelative:busmanager\\view\\tripview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE13D0E5-BE15-407B-8187-7F61D95AD839}|BusManager\\BusManager.csproj|d:\\git\\busmanager\\busmanager\\view\\busview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE13D0E5-BE15-407B-8187-7F61D95AD839}|BusManager\\BusManager.csproj|solutionrelative:busmanager\\view\\busview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE13D0E5-BE15-407B-8187-7F61D95AD839}|BusManager\\BusManager.csproj|d:\\git\\busmanager\\busmanager\\model\\services\\tripservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE13D0E5-BE15-407B-8187-7F61D95AD839}|BusManager\\BusManager.csproj|solutionrelative:busmanager\\model\\services\\tripservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE13D0E5-BE15-407B-8187-7F61D95AD839}|BusManager\\BusManager.csproj|d:\\git\\busmanager\\busmanager\\repository\\triprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE13D0E5-BE15-407B-8187-7F61D95AD839}|BusManager\\BusManager.csproj|solutionrelative:busmanager\\repository\\triprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TripRepository.cs",
+              "DocumentMoniker": "D:\\git\\BusManager\\BusManager\\Repository\\TripRepository.cs",
+              "RelativeDocumentMoniker": "BusManager\\Repository\\TripRepository.cs",
+              "ToolTip": "D:\\git\\BusManager\\BusManager\\Repository\\TripRepository.cs",
+              "RelativeToolTip": "BusManager\\Repository\\TripRepository.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAwDAAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T21:23:47.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TripService.cs",
+              "DocumentMoniker": "D:\\git\\BusManager\\BusManager\\Model\\Services\\TripService.cs",
+              "RelativeDocumentMoniker": "BusManager\\Model\\Services\\TripService.cs",
+              "ToolTip": "D:\\git\\BusManager\\BusManager\\Model\\Services\\TripService.cs",
+              "RelativeToolTip": "BusManager\\Model\\Services\\TripService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAApwBoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T21:22:55.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BusView.cs",
+              "DocumentMoniker": "D:\\git\\BusManager\\BusManager\\View\\BusView.cs",
+              "RelativeDocumentMoniker": "BusManager\\View\\BusView.cs",
+              "ToolTip": "D:\\git\\BusManager\\BusManager\\View\\BusView.cs",
+              "RelativeToolTip": "BusManager\\View\\BusView.cs",
+              "ViewState": "AgIAAHcBAAAAAAAAAAAYwIsBAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T21:08:37.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TripView.cs",
+              "DocumentMoniker": "D:\\git\\BusManager\\BusManager\\View\\TripView.cs",
+              "RelativeDocumentMoniker": "BusManager\\View\\TripView.cs",
+              "ToolTip": "D:\\git\\BusManager\\BusManager\\View\\TripView.cs",
+              "RelativeToolTip": "BusManager\\View\\TripView.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAADYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T21:08:00.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LandingPage.cs",
+              "DocumentMoniker": "D:\\git\\BusManager\\BusManager\\View\\LandingPage.cs",
+              "RelativeDocumentMoniker": "BusManager\\View\\LandingPage.cs",
+              "ToolTip": "D:\\git\\BusManager\\BusManager\\View\\LandingPage.cs",
+              "RelativeToolTip": "BusManager\\View\\LandingPage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T21:05:57.55Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

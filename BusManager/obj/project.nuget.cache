@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9dq+Tik5VQg=",
+  "dgSpecHash": "ss3h8LCg2Sc=",
   "success": true,
-  "projectFilePath": "C:\\git\\BusManager\\BusManager\\BusManager.csproj",
+  "projectFilePath": "D:\\git\\BusManager\\BusManager\\BusManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guiri\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\guiri\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

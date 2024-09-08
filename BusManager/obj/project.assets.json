@@ -2307,11 +2307,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\git\\BusManager\\BusManager\\BusManager.csproj",
+      "projectUniqueName": "D:\\git\\BusManager\\BusManager\\BusManager.csproj",
       "projectName": "BusManager",
-      "projectPath": "C:\\git\\BusManager\\BusManager\\BusManager.csproj",
+      "projectPath": "D:\\git\\BusManager\\BusManager\\BusManager.csproj",
       "packagesPath": "C:\\Users\\guiri\\.nuget\\packages\\",
-      "outputPath": "C:\\git\\BusManager\\BusManager\\obj\\",
+      "outputPath": "D:\\git\\BusManager\\BusManager\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\guiri\\AppData\\Roaming\\NuGet\\NuGet.Config",
