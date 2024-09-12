@@ -25,5 +25,17 @@ namespace BusManager.Model.Services
         {
             return TripRepository.DeleteTrip(trip);
         }
+        public List<Trip>? GetTripsByDriverId (int driverId)
+        {
+            return TripRepository.GetTripsByDriverId(driverId);
+        }
+        public List<Trip>? GetTripsByBusId(int busId)
+        {
+            return TripRepository.GetTripsByBusId(busId);
+        }
+        public List<Trip>? GetTripsByLineId(int lineId)
+        {
+            return TripRepository.GetTripsByLineId(lineId);
+        }
     }
 }

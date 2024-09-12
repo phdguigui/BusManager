@@ -51,5 +51,26 @@ namespace BusManager.Repository
 
             return result > 0;
         }
+
+        public static List<Trip>? GetTripsByDriverId (int driverId)
+        {
+            var _db = new ApplicationContext();
+
+            return _db.Trip.Where(x => x.DriverId == driverId).ToList();
+        }
+
+        public static List<Trip>? GetTripsByBusId(int busId)
+        {
+            var _db = new ApplicationContext();
+
+            return _db.Trip.Where(x => x.BusId == busId).ToList();
+        }
+
+        public static List<Trip>? GetTripsByLineId(int lineId)
+        {
+            var _db = new ApplicationContext();
+
+            return _db.Trip.Where(x => x.LineId == lineId).ToList();
+        }
     }
 }

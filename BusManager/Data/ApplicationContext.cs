@@ -16,7 +16,7 @@ namespace BusManager.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Server=ep-hidden-cell-a5kujchj.us-east-2.aws.neon.tech;Database=busmanager;User Id=busmanager_owner;Password=VNT57sorQIup;Port=5432");
+            optionsBuilder.UseNpgsql("Server=ep-hidden-cell-a5kujchj.us-east-2.aws.neon.tech;Database=busmanager;User Id=busmanager_owner;Password=VNT57sorQIup;Port=5432;CommandTimeout=180;Timeout=30");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

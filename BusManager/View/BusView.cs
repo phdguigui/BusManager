@@ -6,6 +6,7 @@ namespace BusManager.View
     public class BusView
     {
         private static readonly BusService _service = new();
+        private static readonly TripService _tripService = new();
         public static void BusLandingPage ()
         {
             while (true)
@@ -381,6 +382,14 @@ namespace BusManager.View
 
             if (bus is not null)
             {
+                if (_tripService.GetTripsByBusId(bus.Id) is not null)
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Motorista possui viagens em seu nome e não pode ser excluído");
+                    Console.WriteLine("\nToque qualquer tecla para voltar...");
+                    Console.ReadKey();
+                    return;
+                }
                 if (_service.DeleteBus(bus))
                 {
                     Console.Clear();

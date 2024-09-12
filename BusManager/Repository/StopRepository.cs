@@ -60,5 +60,27 @@ namespace BusManager.Repository
 
             return _db.Stop.Where(x => x.StationId == station.Id).ToList();
         }
+
+        public static Stop? GetStopByStationAndLine(int stationId, int lineId)
+        {
+            using var _db = new ApplicationContext();
+
+            return _db.Stop.FirstOrDefault(x => x.StationId == stationId &&
+                                            x.LineId == lineId);
+        }
+
+        public static bool DeleteStopsByLineId(int lineId)
+        {
+            using var _db = new ApplicationContext();
+
+            var stopsToRemove = _db.Stop.Where(x => x.LineId == lineId).ToList();
+
+            foreach (var stop in stopsToRemove)
+            {
+                _db.Stop.Remove(stop);
+            }
+
+            return true;
+        }
     }
 }

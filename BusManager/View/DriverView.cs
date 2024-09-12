@@ -7,6 +7,7 @@ namespace BusManager.View
     public class DriverView
     {
         private static readonly DriverService _service = new();
+        private static readonly TripService _tripService = new();
 
         public static void DriverLandingPage()
         {
@@ -402,6 +403,15 @@ namespace BusManager.View
             {
                 Console.Clear();
                 Console.WriteLine($"Motorista com o CPF {cpf} não encontrado");
+                Console.WriteLine("\nToque qualquer tecla para voltar...");
+                Console.ReadKey();
+                return;
+            }
+
+            if (_tripService.GetTripsByDriverId(driver.Id) is not null)
+            {
+                Console.Clear();
+                Console.WriteLine($"Ônibus possui viagens registradas e não pode ser excluído");
                 Console.WriteLine("\nToque qualquer tecla para voltar...");
                 Console.ReadKey();
                 return;

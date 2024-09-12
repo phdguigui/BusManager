@@ -35,5 +35,15 @@ namespace BusManager.Model.Services
         {
             return StopRepository.GetStopsByStation(station);
         }
+
+        public Stop? GetStopByStationAndLine(int stationId, int lineId)
+        {
+            return StopRepository.GetStopByStationAndLine(stationId, lineId);
+        }
+
+        public bool DeleteStopsByLineId(int lineId)
+        {
+            return StopRepository.DeleteStopsByLineId(lineId);
+        }
     }
 }
