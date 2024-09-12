@@ -35,5 +35,21 @@ namespace BusManager.Model.Services
         {
             return StationRepository.DeleteStation(station);
         }
+
+        public List<Station>? GetOutdatedStations()
+        {
+            var stations = StationRepository.GetOutdatedStations();
+
+            List<Station> result = new();
+
+            stations.ForEach(x => result.Add(new Station()
+            {
+                Id = x.Id,
+                Address = x.Address,
+                Number = x.Number
+            }));
+
+            return result;
+        }
     }
 }

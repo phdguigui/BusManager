@@ -1,4 +1,5 @@
 ﻿using BusManager.Data;
+using BusManager.Model.DTO;
 using BusManager.Model.Entities;
 using BusManager.Model.Interfaces;
 using BusManager.Repository;
@@ -36,6 +37,11 @@ namespace BusManager.Model.Services
         public bool DeleteDriver(Driver driver)
         {
             return DriverRepository.DeleteDriver(driver);
+        }
+
+        public List<DriverTripRanking> GetDriverRanking()
+        {
+            return DriverRepository.GetDriverRanking();
         }
     }
 }

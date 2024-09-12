@@ -61,5 +61,28 @@ namespace BusManager.Repository
 
             return result > 0;
         }
+
+        public static List<StationDTO>? GetOutdatedStations()
+        {
+            using var _db = new ApplicationContext();
+
+            var result = _db.Set<StationDTO>()
+                .FromSqlRaw(@"SELECT s.""Id"", s.""Address"", s.""Number"" 
+                              FROM ""Stations"" s 
+                              LEFT JOIN ""Stops"" s2 ON s.""Id"" = s2.""StationId"" 
+                              LEFT JOIN ""Lines"" l ON l.""Id"" = s2.""LineId"" 
+                              WHERE l.""Active"" = 0 OR s2.""LineId"" IS NULL
+                              ORDER BY s.""Id""")
+        .ToList();
+
+            return result;
+        }
+
+        public class StationDTO
+        {
+            public int Id { get; set; }
+            public string Address { get; set; }
+            public string Number { get; set; }
+        }
     }
 }

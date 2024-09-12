@@ -1,4 +1,5 @@
 ﻿using BusManager.Data;
+using BusManager.Model.DTO;
 using BusManager.Model.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -60,6 +61,39 @@ namespace BusManager.Repository
             var result = _db.SaveChanges();
 
             return result > 0;
+        }
+
+        public static List<DriverTripRanking> GetDriverRanking()
+        {
+            var _db = new ApplicationContext();
+
+            var driversWithMostTrips = _db.Trip
+                .Include(t => t.Driver)
+                .GroupBy(t => new { t.Driver.Name, t.Driver.Surname, t.Driver.HireDate })
+                .Select(group => new
+                {
+                    DriverName = group.Key.Name,
+                    DriverSurname = group.Key.Surname,
+                    DriverHireDate = group.Key.HireDate,
+                    TripCount = group.Count()
+                })
+                .OrderByDescending(d => d.TripCount)
+                .ToList();
+
+            List<DriverTripRanking> result = new();
+            foreach (var driver in driversWithMostTrips)
+            {
+                result.Add(new DriverTripRanking() 
+                {
+                    Name = driver.DriverName,
+                    Surname = driver.DriverSurname,
+                    TripCount = driver.TripCount,
+                    HireDate = driver.DriverHireDate
+                }
+                );
+            }
+
+            return result;
         }
     }
 }

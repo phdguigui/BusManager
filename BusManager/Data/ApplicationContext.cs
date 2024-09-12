@@ -1,5 +1,6 @@
 ﻿using BusManager.Model.Entities;
 using Microsoft.EntityFrameworkCore;
+using static BusManager.Repository.StationRepository;
 
 namespace BusManager.Data
 {
@@ -11,6 +12,7 @@ namespace BusManager.Data
         public DbSet<Line> Line { get; set; }
         public DbSet<Stop> Stop { get; set; }
         public DbSet<Trip> Trip { get; set; }
+        public DbSet<StationDTO> StationDto { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -37,7 +37,7 @@
                         TripView.TripLandingPage();
                         break;
                     case '6':
-                        LineView.LineLandingPage();
+                        ReportView.ReportLandingPage();
                         break;
                     case '7':
                         Environment.Exit(0);
