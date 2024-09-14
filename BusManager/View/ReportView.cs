@@ -67,7 +67,7 @@ namespace BusManager.View
                 foreach (var trip in tripList)
                 {
                     Console.WriteLine($"{trip.Id.ToString().PadRight(5)}" +
-                        $"{trip.Line.Name.PadRight(30)}" +
+                        $"{trip.Line.Name.PadRight(40)}" +
                         $"{trip.StartTime.ToString("dd/MM/yyyy HH:mm").PadRight(18)}" +
                         $"{trip.EndTime.ToString("dd/MM/yyyy HH:mm").PadRight(18)}" +
                         $"{trip.Driver.Name} {trip.Driver.Surname}".PadRight(30) +

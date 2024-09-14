@@ -66,7 +66,7 @@ namespace BusManager.View
                 // Cabeçalho
                 Console.WriteLine(
                     $"{"Id".PadRight(3)}" +
-                    $"{"Linha".PadRight(30)}" +
+                    $"{"Linha".PadRight(40)}" +
                     $"{"Data Início".PadRight(18)}" +
                     $"{"Data Término".PadRight(18)}" +
                     $"{"Motorista".PadRight(30)}" +
@@ -75,7 +75,7 @@ namespace BusManager.View
                 foreach (var trip in tripList)
                 {
                     Console.WriteLine($"{trip.Id.ToString().PadRight(3)}" +
-                        $"{trip.Line.Name.PadRight(30)}" +
+                        $"{trip.Line.Name.PadRight(40)}" +
                         $"{trip.StartTime.ToString("dd/MM/yyyy HH:mm").PadRight(18)}" +
                         $"{trip.EndTime.ToString("dd/MM/yyyy HH:mm").PadRight(18)}" +
                         $"{trip.Driver.Name} {trip.Driver.Surname}".PadRight(30) +
@@ -177,7 +177,7 @@ namespace BusManager.View
                 return;
             }
 
-            trip.StartTime = dateTime;
+            trip.StartTime = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, dateTime.Hour, dateTime.Minute, 0, DateTimeKind.Utc);
 
             Console.WriteLine("Digite a data e hora do final da viagem (dd/MM/yyyy HH:mm):");
             input = Console.ReadLine();
@@ -190,7 +190,7 @@ namespace BusManager.View
                 return;
             }
 
-            trip.EndTime = dateTimeEnd;
+            trip.EndTime = new DateTime(dateTimeEnd.Year, dateTimeEnd.Month, dateTimeEnd.Day, dateTimeEnd.Hour, dateTimeEnd.Minute, 0, DateTimeKind.Utc);
 
             trip.BusId = bus.Id;
             trip.DriverId = driver.Id;

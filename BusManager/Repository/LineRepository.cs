@@ -25,7 +25,7 @@ namespace BusManager.Repository
         {
             using var _db = new ApplicationContext();
 
-            var Line = _db.Line.FirstOrDefault(x => x.Id == id);
+            var Line = _db.Line.Include(x => x.Stops).FirstOrDefault(x => x.Id == id);
             return Line;
         }
 

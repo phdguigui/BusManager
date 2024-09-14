@@ -74,7 +74,7 @@ namespace BusManager.View
                     $"{"Id".PadRight(3)}" +
                     $"{"Nome".PadRight(15)}" +
                     $"{"Sobrenome".PadRight(15)}" +
-                    $"{"CPF".PadRight(15)}" +
+                    $"{"CPF".PadRight(18)}" +
                     $"{"Data Nascimento".PadRight(18)}" +
                     $"{"Data Contratação".PadRight(19)}" +
                     $"{"Ativo?"}");
@@ -84,7 +84,7 @@ namespace BusManager.View
                     Console.WriteLine($"{driver.Id.ToString().PadRight(3)}" +
                         $"{driver.Name.PadRight(15)}" +
                         $"{driver.Surname.PadRight(15)}" +
-                        $"{driver.CPF.PadRight(15)}" +
+                        $"{driver.CPF.PadRight(18)}" +
                         $"{driver.Birthday.ToString("dd/MM/yyyy").PadRight(18)}" +
                         $"{driver.HireDate.ToString("dd/MM/yyyy").PadRight(19)}" +
                         $"{(driver.Active ? "Sim" : "Não")}");
@@ -118,7 +118,7 @@ namespace BusManager.View
                     $"{"Id".PadRight(3)}" +
                     $"{"Nome".PadRight(15)}" +
                     $"{"Sobrenome".PadRight(15)}" +
-                    $"{"CPF".PadRight(15)}" +
+                    $"{"CPF".PadRight(18)}" +
                     $"{"Data Nascimento".PadRight(18)}" +
                     $"{"Data Contratação".PadRight(19)}" +
                     $"{"Ativo?"}");
@@ -128,7 +128,7 @@ namespace BusManager.View
                     Console.WriteLine($"{driver.Id.ToString().PadRight(3)}" +
                         $"{driver.Name.PadRight(15)}" +
                         $"{driver.Surname.PadRight(15)}" +
-                        $"{driver.CPF.PadRight(15)}" +
+                        $"{driver.CPF.PadRight(18)}" +
                         $"{driver.Birthday.ToString("dd/MM/yyyy").PadRight(18)}" +
                         $"{driver.HireDate.ToString("dd/MM/yyyy").PadRight(19)}" +
                         $"{(driver.Active ? "Sim" : "Não")}");
@@ -165,7 +165,7 @@ namespace BusManager.View
                     $"{"Id".PadRight(3)}" +
                     $"{"Nome".PadRight(15)}" +
                     $"{"Sobrenome".PadRight(15)}" +
-                    $"{"CPF".PadRight(15)}" +
+                    $"{"CPF".PadRight(18)}" +
                     $"{"Data Nascimento".PadRight(18)}" +
                     $"{"Data Contratação".PadRight(19)}" +
                     $"{"Ativo?"}");
@@ -173,7 +173,7 @@ namespace BusManager.View
                 Console.WriteLine($"{driver.Id.ToString().PadRight(3)}" +
                     $"{driver.Name.PadRight(15)}" +
                     $"{driver.Surname.PadRight(15)}" +
-                    $"{driver.CPF.PadRight(15)}" +
+                    $"{driver.CPF.PadRight(18)}" +
                     $"{driver.Birthday.ToString("dd/MM/yyyy").PadRight(18)}" +
                     $"{driver.HireDate.ToString("dd/MM/yyyy").PadRight(19)}" +
                     $"{(driver.Active ? "Sim" : "Não")}");
@@ -221,7 +221,7 @@ namespace BusManager.View
 
             Console.WriteLine("Digite o CPF do motorista:");
             driver.CPF = Console.ReadLine();
-            if (string.IsNullOrEmpty(driver.CPF) || driver.CPF.Length != 11)
+            if (string.IsNullOrEmpty(driver.CPF))
             {
                 Console.Clear();
                 Console.WriteLine("CPF não informado ou inválido");
@@ -408,10 +408,10 @@ namespace BusManager.View
                 return;
             }
 
-            if (_tripService.GetTripsByDriverId(driver.Id) is not null)
+            if (_tripService.GetTripsByDriverId(driver.Id).Count > 0)
             {
                 Console.Clear();
-                Console.WriteLine($"Ônibus possui viagens registradas e não pode ser excluído");
+                Console.WriteLine($"Motorista possui viagens registradas e não pode ser excluído");
                 Console.WriteLine("\nToque qualquer tecla para voltar...");
                 Console.ReadKey();
                 return;

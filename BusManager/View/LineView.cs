@@ -1,7 +1,6 @@
-﻿using BusManager.Model.Entities;
+﻿using BusManager.Data;
+using BusManager.Model.Entities;
 using BusManager.Model.Services;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
-using static System.Collections.Specialized.BitVector32;
 
 namespace BusManager.View
 {
@@ -82,7 +81,7 @@ namespace BusManager.View
                 // Cabeçalho
                 Console.WriteLine(
                     $"{"Id".PadRight(3)}" +
-                    $"{"Nome".PadRight(20)}" +
+                    $"{"Nome".PadRight(40)}" +
                     $"{"Código".PadRight(10)}" +
                     $"{"Origem".PadRight(20)}" +
                     $"{"Destino".PadRight(20)}" +
@@ -91,7 +90,7 @@ namespace BusManager.View
                 foreach (var line in lineList)
                 {
                     Console.WriteLine($"{line.Id.ToString().PadRight(3)}" +
-                        $"{line.Name.PadRight(20)}" +
+                        $"{line.Name.PadRight(40)}" +
                         $"{line.Code.PadRight(10)}" +
                         $"{line.Origin.PadRight(20)}" +
                         $"{line.Destiny.PadRight(20)}" +
@@ -128,7 +127,7 @@ namespace BusManager.View
                 // Cabeçalho
                 Console.WriteLine(
                     $"{"Id".PadRight(3)}" +
-                    $"{"Nome".PadRight(20)}" +
+                    $"{"Nome".PadRight(40)}" +
                     $"{"Código".PadRight(10)}" +
                     $"{"Origem".PadRight(20)}" +
                     $"{"Destino".PadRight(20)}" +
@@ -137,7 +136,7 @@ namespace BusManager.View
                 foreach (var line in lineList)
                 {
                     Console.WriteLine($"{line.Id.ToString().PadRight(3)}" +
-                        $"{line.Name.PadRight(20)}" +
+                        $"{line.Name.PadRight(40)}" +
                         $"{line.Code.PadRight(10)}" +
                         $"{line.Origin.PadRight(20)}" +
                         $"{line.Destiny.PadRight(20)}" +
@@ -277,6 +276,15 @@ namespace BusManager.View
                             StationView.ShowActiveStations(true);
                             Console.WriteLine($"Digite o ID da estação para a parada {i + 1}");
                             tempId = Console.ReadLine();
+                            if (stopList.Select(x => x.StationId).Contains(int.Parse(tempId)))
+                            {
+                                Console.Clear();
+                                Console.WriteLine($"Estação com id {tempId} já se encontra na rota");
+                                Console.WriteLine("\nToque qualquer tecla para voltar...");
+                                Console.ReadKey();
+
+                                continue;
+                            }
                             var station = _stationService.GetStationById(int.Parse(tempId ?? "0"));
                             if (station is null)
                             {
@@ -294,17 +302,9 @@ namespace BusManager.View
                                 Console.WriteLine("\nToque qualquer tecla para voltar...");
                                 Console.ReadKey();
 
-                                return;
-                            }
-                            if (_stopService.GetStopByStationAndLine(int.Parse(tempId), currentLine!.Id) is not null)
-                            {
-                                Console.Clear();
-                                Console.WriteLine($"Estação com id {tempId} já adicionada a essa linha");
-                                Console.WriteLine("\nToque qualquer tecla para voltar...");
-                                Console.ReadKey();
-
                                 continue;
                             }
+
                             break;
                         }
 
@@ -559,7 +559,7 @@ namespace BusManager.View
 
             if (line is not null)
             {
-                if (_tripService.GetTripsByLineId(line.Id) is not null)
+                if (_tripService.GetTripsByLineId(line.Id).Count > 0)
                 {
                     Console.Clear();
                     Console.WriteLine($"Linha possui viagens registradas e não pode ser excluída");
@@ -567,7 +567,16 @@ namespace BusManager.View
                     Console.ReadKey();
                     return;
                 }
-                _stopService.DeleteStopsByLineId(line.Id);
+                var route = _stopService.GetRouteLine(line.Id);
+                if (route.Count > 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Linha com paradas cadastradas.");
+                    Console.WriteLine("\nToque qualquer tecla para voltar...");
+                    Console.ReadKey();
+
+                    return;
+                }
                 if (_service.DeleteLine(line))
                 {
                     Console.Clear();
@@ -609,10 +618,21 @@ namespace BusManager.View
 
             if (line is not null)
             {
+                ApplicationContext _db = new ApplicationContext();
+                var alreadyUsedStations = _db.Stop.Where(x => x.LineId == line.Id).Select(x => x.StationId).ToList();
                 Console.Clear();
                 StationView.ShowActiveStations(true);
                 Console.WriteLine($"Digite o ID da estação");
                 var tempId = Console.ReadLine();
+                if (alreadyUsedStations.Contains(int.Parse(tempId)))
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Estação com id {tempId} já se encontra na rota");
+                    Console.WriteLine("\nToque qualquer tecla para voltar...");
+                    Console.ReadKey();
+
+                    return;
+                }
                 var station = _stationService.GetStationById(int.Parse(tempId ?? "0"));
                 if (station is null)
                 {
@@ -627,15 +647,6 @@ namespace BusManager.View
                 {
                     Console.Clear();
                     Console.WriteLine($"Estação com id {tempId} não está ativa");
-                    Console.WriteLine("\nToque qualquer tecla para voltar...");
-                    Console.ReadKey();
-
-                    return;
-                }
-                if (_stopService.GetStopByStationAndLine(int.Parse(tempId ?? "0"), line!.Id) is not null)
-                {
-                    Console.Clear();
-                    Console.WriteLine($"Estação com id {tempId} já adicionada a essa linha");
                     Console.WriteLine("\nToque qualquer tecla para voltar...");
                     Console.ReadKey();
 

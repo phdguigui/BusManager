@@ -69,14 +69,14 @@ namespace BusManager.View
                 // Cabeçalho
                 Console.WriteLine(
                     $"{"Id".PadRight(3)}" +
-                    $"{"Modelo".PadRight(15)}" +
+                    $"{"Modelo".PadRight(30)}" +
                     $"{"Placa".PadRight(10)}" +
                     $"{"Ativo?"}");
 
                 foreach (var bus in busList)
                 {
                     Console.WriteLine($"{bus.Id.ToString().PadRight(3)}" +
-                        $"{bus.Model.PadRight(15)}" +
+                        $"{bus.Model.PadRight(30)}" +
                         $"{bus.Plate.PadRight(10)}" +
                         $"{(bus.Active ? "Sim" : "Não")}");
                 }
@@ -110,14 +110,14 @@ namespace BusManager.View
                 Console.WriteLine("Menu - Pesquisar Ônibus Ativos\n");
                 Console.WriteLine(
                     $"{"Id".PadRight(3)}" +
-                    $"{"Modelo".PadRight(15)}" +
+                    $"{"Modelo".PadRight(30)}" +
                     $"{"Placa".PadRight(10)}" +
                     $"{"Ativo?"}");
 
                 foreach (var bus in busList)
                 {
                     Console.WriteLine($"{bus.Id.ToString().PadRight(3)}" +
-                        $"{bus.Model.PadRight(15)}" +
+                        $"{bus.Model.PadRight(30)}" +
                         $"{bus.Plate.PadRight(10)}" +
                         $"{(bus.Active ? "Sim" : "Não")}");
                 }
@@ -382,10 +382,10 @@ namespace BusManager.View
 
             if (bus is not null)
             {
-                if (_tripService.GetTripsByBusId(bus.Id) is not null)
+                if (_tripService.GetTripsByBusId(bus.Id).Count > 0)
                 {
                     Console.Clear();
-                    Console.WriteLine($"Motorista possui viagens em seu nome e não pode ser excluído");
+                    Console.WriteLine($"Ônibus possui viagens registradas e não pode ser excluído");
                     Console.WriteLine("\nToque qualquer tecla para voltar...");
                     Console.ReadKey();
                     return;

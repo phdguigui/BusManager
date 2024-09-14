@@ -109,8 +109,8 @@ namespace BusManager.Data
                 p.ToTable("Trips");
                 p.HasKey(p => p.Id);
 
-                p.Property(p => p.StartTime).HasColumnType("DATE").IsRequired();
-                p.Property(p => p.EndTime).HasColumnType("DATE").IsRequired();
+                p.Property(p => p.StartTime).IsRequired();
+                p.Property(p => p.EndTime).IsRequired();
 
                 p.HasOne(trip => trip.Bus)
                  .WithMany()

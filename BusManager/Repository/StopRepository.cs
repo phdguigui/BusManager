@@ -80,6 +80,8 @@ namespace BusManager.Repository
                 _db.Stop.Remove(stop);
             }
 
+            _db.SaveChanges();
+
             return true;
         }
     }
