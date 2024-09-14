@@ -35,12 +35,12 @@ O projeto está disponível para o público no repositório do GitHub abaixo
 
 Primeiramente você deve realizar o clone ou então baixar o projeto como zip na sua máquina, como no exemplo abaixo
 
-![image](https://github.com/user-attachments/assets/10f363b8-a2c4-4c77-8d86-ebe689c4c898)
+![image](https://github.com/user-attachments/assets/ca21991b-88d2-4643-8381-e7ae4fba3cea)
 
 Feito isso, você deverá acessar o diretório abaixo e procurar pelo executável do aplicativo (BusManager.exe)
 
 ```bash
-.\BusManager\bin\Release\net8.0
+.\BusManager\bin\Release\net8.0\win-x86
 ```
 
 ![image](https://github.com/user-attachments/assets/3f69ca4a-8d04-404b-a255-80e4d51ae43f)
